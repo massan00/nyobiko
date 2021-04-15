@@ -1,10 +1,19 @@
-const areaCalc = document.querySelector('#areacalc');
-areaCalc.addEventListener('submit', (event) => {
+const logic = document.querySelector('#logic');
+logic.addEventListener('submit', (event) => {
     event.preventDefault();
-    const { radius } = event.target.elements;
-    const radiusValue = radius.value;
-    const area = radiusValue * radiusValue * 3.14;
+    const { age, member } = event.target.elements;
+    const inputAge = parseInt(age.value);
+    const isMember = member[0].checked;
+    let price = null;
 
-    const circleArea = document.querySelector('#circle-area');
-    circleArea.textContent = `円の面積は${area}平方センチメートルです。`;
+    if (inputAge <= 15) {
+        price = 800;
+    } else if (isMember) {
+        price = 1000;
+    } else {
+        price = 1800;
+    }
+
+    const displayPrice = document.querySelector('#price');
+    displayPrice.textContent = `料金は${price}円です。`
 })
