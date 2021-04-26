@@ -1,47 +1,17 @@
-const counter = {
-    number: 0,
-    countUp: function () {
-        counter.number++;
-    },
-    countDown: function () {
-        counter.number--;
-    },
-    countReset: function () {
-        counter.number = 0;
-    }
+function countDown() {
+    const now = Date.now();
+    const finishDate = new Date(2021, 3, 25, 0, 0, 0);
+
+    const remainingHour = Math.floor((finishDate.getTime() - now) / (1000 * 60 * 60));
+    const divhour = (finishDate.getTime() - now) % (1000 * 60 * 60);
+    const remainingMinuits = Math.floor(divhour / (1000 * 60));
+    const divMinuits = divhour % (1000 * 60);
+    const remainingSeconds = Math.floor(divMinuits / 1000);
+    const divSeconds = divMinuits % 1000;
+    const remainingMseconds = Math.floor(divSeconds);
+
+    const area = document.querySelector('#area')
+    area.textContent = `残り${remainingHour}時間${remainingMinuits}分${remainingSeconds}秒${remainingMseconds}`;
+
 }
-
-const button = document.createElement('button');
-button.textContent = 'カウントアップ';
-
-const button2 = document.createElement('button');
-button2.textContent = 'カウントダウン';
-
-const button3 = document.createElement('button');
-button3.textContent = 'カウントリセット';
-
-const p = document.createElement('p');
-p.textContent = counter.number;
-
-
-const num = document.querySelector('#area');
-num.appendChild(p);
-num.appendChild(button);
-num.appendChild(button2);
-num.appendChild(button3);
-
-
-button.addEventListener('click', () => {
-    counter.countUp();
-    p.textContent = counter.number;
-});
-
-button2.addEventListener('click', () => {
-    counter.countDown();
-    p.textContent = counter.number;
-})
-
-button3.addEventListener('click', () => {
-    counter.countReset();
-    p.textContent = counter.number;
-})
+setInterval(countDown, 50);
