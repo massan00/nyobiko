@@ -1,0 +1,11 @@
+{
+  "name": "nyobiko",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:opennista1/nyobiko.git",
+  "author": "openista1 <planbplnacnow@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
